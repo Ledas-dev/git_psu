@@ -4,47 +4,15 @@ using UnityEngine;
 
 public class cubeScript : MonoBehaviour
 {
-    private Vector3 mousePosition;
-    public int speed;
-    public int speedRotate;
-    Quaternion originRotation;
-     float angel;
-    float mouseX;
-    float mouseY;
+    float Ver, Hor;
+    public int speed = 10;
 
-    private void Start()
-    {
-        originRotation = transform.rotation; 
-    }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            MoveCube(transform.position + transform.forward * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            MoveCube(transform.position + transform.forward * (-speed));
-        }
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            mouseX += Input.GetAxis("Mouse X") * (-speed);
-            mouseY += Input.GetAxis("Mouse Y") * (-speed);
+        Ver = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        Hor = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
 
-            Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
-            Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
-
-            transform.rotation = originRotation * rotationY * rotationX;
-            
-        }
-        float angel = Input.GetAxis("Horizontal") * 16;
-        transform.Rotate(0, angel, 0);
+        transform.Translate(new Vector3(Hor, 0, Ver));
     }
-
-    private void MoveCube(Vector3 newPosition)
-    {
-        transform.position = newPosition;
-  
-    }
-  
 }

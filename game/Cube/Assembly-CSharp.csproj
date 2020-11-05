@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\cube\scripts\cameraControl.cs" />
     <Compile Include="Assets\cube\scripts\cubeScript.cs" />
+    <Compile Include="Assets\cube\scripts\povorot.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/79273/Saved Games/Desktop/центр проектного творчества/game/Cube/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
